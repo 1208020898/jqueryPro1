@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+  <style type="text/css">
+	body{
+		background: #000 url("img/bg2.jpg")no-repeat center 40px;
+	}
+	#box{
+		position:absolute;
+		left:calc(50% - 50px);
+		top:0;
+		width:100px;
+		height:40px;
+		color:#fff;
+		font-size:22px;
+		text-align:center;
+		line-height:40px;
+		cursor:pointer;
+	}
+	#pic{
+		transition:1s;
+		width:0;
+		height:0;
+		padding:0;
+		margin:0;
+		background:url("img/bg.jpg")no-repeat center/cover;
+	}
+  </style>
+ </head>
+ <body>
+	<div id="box">
+		点击
+		<p id="pic"></p>
+	</div>
+	<script>
+		var oBox = document.getElementById("box");
+		var oPic = document.getElementById("pic");
+		oBox.onmouseover = function(){
+			this.style.background = "#fff";
+			this.style.color = "#000";
+			oPic.style.width = "550px";
+			oPic.style.height = "300px";
+		};
+		oBox.onmouseout = function(){
+			this.style.background = "#000";
+			this.style.color = "#fff";
+			//oPic.style.display = "none";
+			oPic.style.width = "0";
+			oPic.style.height = "0";
+		}
+	</script>
+ </body>
+</html>
+

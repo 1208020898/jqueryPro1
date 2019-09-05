@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>QQ留言板</title>
+  <style type="text/css">
+	*{margin:0;padding:0;}
+	ul li{
+		list-style:none;
+		
+	}
+	#box{
+		width:500px;
+		height:244px;
+		border:10px solid #ccc;
+		position:relative;
+		margin:100px auto 0;
+	}
+	#text{
+		width:500px;
+		height:200px;
+		resize:none;
+		border:none;
+		font-size:20px;
+		color:purple;
+	}
+	#continer{
+		width:500px;
+		height:44px;
+		background:red;
+		display:flex;
+	}
+	#pic{
+		width:40px;
+		height:40px;
+		position:relative;
+	}
+	#pic img{
+		cursor:pointer;
+		position:absolute;
+		display:none;
+		border:3px solid purple;
+	}
+	#pic .show{
+		display:block;
+	}
+	#publish{
+		width:100px;
+		height:40px;
+		margin-top:2px;
+		margin-left:400px;
+		border-radius:10px;
+		cursor:pointer;
+		color:#ccc;
+		background:purple;
+		font-size:20px;
+	}
+	#message{
+		width:519px;
+		margin:0 auto;
+	}
+	#message ul{
+		width:519px;
+		position:relative;
+	}
+	#message ul li{
+		position:relative;
+		left:0;
+		top:0;
+		width:519px;
+		height:30px;
+		line-height:30px;
+		font-size:20px;
+		color:#ccc;
+		background:red;
+		margin-top:10px;
+	}
+	#message ul li span{
+		margin-left:40px;
+	}
+	#message .img{
+		position:absolute;
+		top:0;
+		left:0;
+		width:30px;
+		height:30px;
+	}
+  </style>
+ </head>
+ <body>
+	<div id="box">
+		<!--输入文本内容-->
+		<textarea id="text"></textarea>
+		<div id="continer">
+			<!--点击切换头像-->
+			<div id="pic">
+				<img src="img/x1.jpg" width="40px" height="40px" class="show" id="img1">
+				<img src="img/x2.jpg" width="40px" height="40px" id="img2">
+			</div>
+			<!--点击发表内容-->
+			<div>
+				<button id="publish">发表</button>
+			</div>
+		</div>
+	</div>
+	<div id="message">
+		<ul id="article">
+		</ul>
+	</div>
+	<script>
+		var Img1 = document.getElementById("img1");
+		var Img2 = document.getElementById("img2");
+		var publish = document.getElementById("publish");
+		var text = document.getElementById("text");
+		var UL = document.getElementById("article");
+		var imgSrc = Img1.src;
+
+		//点击切换头像
+		Img1.onclick = function(){
+			Img1.className = "";
+			Img2.className = "show";
+			imgSrc = Img2.src;
+		}
+		Img2.onclick = function(){
+			Img1.className = "show";
+			Img2.className = "";
+			imgSrc = Img1.src;
+		}
+
+		publish.onclick = function(){
+			if(text.value){
+				UL.innerHTML += "<li><img src="+imgSrc+" class='img'><span>"+text.value+"</span></li>";
+			}else{
+				alert("文本框内容不能为空");
+			}
+			text.value = "";
+
+		}
+	</script>
+ </body>
+</html>
